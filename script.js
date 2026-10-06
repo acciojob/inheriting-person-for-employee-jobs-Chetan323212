@@ -5,18 +5,19 @@ function Person(name, age) {
 		this.age = age;
 	
 
-	greet(){
+	Person.prototype.greet = function(){
 		console.log(`Hello, my name ${this.name}, I am ${this.age} years old`)
 	}
 }
+Employee.prototype = Object.create(Person.prototype);
+Employee.prototype.constructor = Employee;
 
 function Employee(name, age, jobTitle) {
-	constructor(name , age , jobTitle){
-		super(name , age)
-		this.jobTittle = jobTitle;
-	}
+	
+		// this.jobTittle = jobTitle;
+	
 
-	jobGreet(){
+	Employee.prototype.jobGreet = function(){
 		console.log(`Hello, my name is ${this.name}, I am ${this.age} years old and my job title is ${this.jobTittle}`)
 	}
 }
